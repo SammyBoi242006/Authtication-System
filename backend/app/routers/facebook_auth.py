@@ -98,6 +98,3 @@ async def facebook_profile(request:Request):
             'picture': picture,
         }
     )
-
-if __name__ == '__main__':
-    uvicorn.run("facebook_auth:app",reload=True)

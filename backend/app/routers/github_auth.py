@@ -102,7 +102,3 @@ async def github_profile(request: Request):
         }
     )
 
-
-
-if __name__ == '__main__':
-    uvicorn.run('github_auth:app',reload=True)
