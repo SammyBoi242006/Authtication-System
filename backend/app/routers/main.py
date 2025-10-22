@@ -51,4 +51,4 @@ async def web_signin(
         ''')
 
 if __name__ == '__main__':
-    uvicorn.run('web_login_auth:app',reload=True)
+    uvicorn.run('main:app',reload=True)
