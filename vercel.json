@@ -1,7 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "backend/app/routers/main.py", "use": "@vercel/python", "config": { "includeFiles": ["backend/requirements.txt"] } }
+    {
+      "src": "backend/app/routers/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": [
+          "backend/app/**",
+          "backend/requirements.txt"
+        ],
+        "runtime": "python3.13"
+      }
+    }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "backend/app/routers/main.py" }
