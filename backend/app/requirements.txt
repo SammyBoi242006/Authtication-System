@@ -1,5 +1,7 @@
-fastapi
-python-socketio
-jose
+fastapi== 0.119.0
 httpx
 pathlib
+uvicorn
+urllib
+dotenv
+bcrypt
