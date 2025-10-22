@@ -1,7 +1,21 @@
 from github_auth import *
 from fastapi import Form
+from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
 import bcrypt
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+from . import auth, github_auth, facebook_auth
+app.include_router(auth.router)
+app.include_router(github_auth.router)
+app.include_router(facebook_auth.router)
 
 
 @app.post('/login/web',name='login_web')
@@ -50,5 +64,7 @@ async def web_signin(
             <h2>could not log you in</h2>
         ''')
 
-if __name__ == '__main__':
-    uvicorn.run('main:app',reload=True)
+if __name__ == "__main__":
+    uvicorn.run("backend.app.routers.main:app", host="0.0.0.0", port=8000, reload=True)
+
+handler = Mangum(app)

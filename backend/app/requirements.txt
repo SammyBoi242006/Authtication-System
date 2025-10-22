@@ -5,3 +5,4 @@ uvicorn
 urllib
 dotenv
 bcrypt
+mangum
