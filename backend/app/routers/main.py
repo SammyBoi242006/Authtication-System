@@ -1,4 +1,4 @@
-from github_auth import *
+from backend.app.routers.github_auth import *
 from fastapi import Form
 
 import bcrypt

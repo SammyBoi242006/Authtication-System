@@ -1,6 +1,6 @@
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
-from routers.main import *
+from backend.app.routers.main import *
 
 
 app.add_middleware(
@@ -12,6 +12,6 @@ app.add_middleware(
 )
 
 if __name__ == "__main__":
-    uvicorn.run("backend.app.routers.auth:app",reload=True)
+    uvicorn.run("app:app",reload=True)
 
 handler = Mangum(app)
