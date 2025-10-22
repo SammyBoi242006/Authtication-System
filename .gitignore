@@ -2,3 +2,4 @@ structure.csv
 .venv
 .idea
 .env
+/backend/app/data/users.db
