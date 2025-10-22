@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', path='home_page.css') }}">
+    <title>ChatApp</title>
+</head>
+<body style="background-color: orange;">
+    <div class="main-container">
+        <div class="demo-video-right">
+            <img src="https://media1.tenor.com/m/LV6HaN1r8lcAAAAC/gamer-login.gif" alt="Gaming login animation">
+        </div>
+        <form action="{{ url_for('signin_web') }}" method="post">
+        <div class="login-container">
+        <h1 style="font-weight: 900;">Welcome To ChatApp</h1>
+        <h2 style="text-align: center;">LOGIN</h2>
+
+        <div class="input-group">
+            <label for="email">EMAIL</label>
+            <input type="email" name="email" id="email" placeholder="your@email.com">
+        </div>
+
+        <div class="input-group">
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" id="password" placeholder="••••••••">
+        </div>
+
+        <button type="submit">SIGN IN</button>
+        </form>
+        <div class="divider">OR</div>
+
+        <div class="social-login">
+            <a href="{{ url_for('login_google') }}" style="text-decoration: None"><div class="social-btn">G</div></a>
+            <a href="{{ url_for('login_facebook') }}" style="text-decoration: None"><div class="social-btn">F</div></a>
+            <a href="{{ url_for('login_github') }}" style="text-decoration: None"><div class="social-btn">Git</div></a>
+        </div>
+
+        <div class="footer">
+            Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a>
+        </div>
+        </div>
+    </form>
+    </div>
+
+</body>
+</html>

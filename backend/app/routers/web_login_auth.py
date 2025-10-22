@@ -1,0 +1,54 @@
+from github_auth import *
+from fastapi import Form
+import bcrypt
+
+
+
+@app.post('/login/web',name='login_web')
+async def web_login(
+        request: Request,
+        name: str = Form(...),
+        email: str = Form(...),
+        password: str = Form(...),
+        ):
+
+    userinfo = {
+        'name': name,
+        'email': email,
+        'password': password,
+    }
+    save_user(name=name, email=email, password=password, field='web')
+    return templates.TemplateResponse(
+        'user_profile.html',
+        {
+            'request': request,
+            'name': name,
+            'email': email,
+            'picture': None,
+        }
+    )
+
+@app.post('/signin/web',name='signin_web')
+async def web_signin(
+        request: Request,
+        email: str = Form(...),
+        password: str = Form(...),
+        ):
+    valid,name,picture = check_user(email=email,password=password)
+    if valid:
+        return templates.TemplateResponse(
+            'user_profile.html',
+            {
+                'request': request,
+                'name': name,
+                'email': email,
+                'picture': picture,
+            }
+        )
+    else:
+        return HTMLResponse('''
+            <h2>could not log you in</h2>
+        ''')
+
+if __name__ == '__main__':
+    uvicorn.run('web_login_auth:app',reload=True)
