@@ -1,16 +1,9 @@
 from github_auth import *
 from fastapi import Form
-from fastapi.middleware.cors import CORSMiddleware
-from mangum import Mangum
+
 import bcrypt
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 # from ..routers import auth, github_auth, facebook_auth
 # app.include_router(auth.router)
@@ -66,5 +59,3 @@ async def web_signin(
 
 if __name__ == "__main__":
     uvicorn.run("backend.app.routers.main:app",reload=True)
-
-handler = Mangum(app)
