@@ -12,6 +12,6 @@ app.add_middleware(
 )
 
 if __name__ == "__main__":
-    uvicorn.run("index:app",reload=True)
+    uvicorn.run("backend.app.routers.auth:app",reload=True)
 
 handler = Mangum(app)
