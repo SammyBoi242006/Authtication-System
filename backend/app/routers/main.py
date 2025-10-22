@@ -12,10 +12,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from . import auth, github_auth, facebook_auth
-app.include_router(auth.router)
-app.include_router(github_auth.router)
-app.include_router(facebook_auth.router)
+# from ..routers import auth, github_auth, facebook_auth
+# app.include_router(auth.router)
+# app.include_router(github_auth.router)
+# app.include_router(facebook_auth.router)
 
 
 @app.post('/login/web',name='login_web')
