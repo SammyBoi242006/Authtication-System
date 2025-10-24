@@ -1,1 +1,1 @@
-web: gunicorn 'backend.app.routers.main:app'
+web: uvicorn 'backend.app.routers.main:app'
