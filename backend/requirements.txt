@@ -6,3 +6,4 @@ urllib
 dotenv
 bcrypt
 mangum
+gunicorn
